@@ -7,8 +7,8 @@
       Case Problem 1
 
       CGIP Registration Form
-      Author: 
-      Date:   
+      Author: David Lopez
+      Date:  12/5/19
 
       Filename:   cg_register.html
 
@@ -19,6 +19,9 @@
    <title>CGIP Registration Form</title>
    <link href="cg_base.css" rel="stylesheet" />
    <link href="cg_styles.css" rel="stylesheet" />
+   <link href="cg_forms.css" rel="stylesheet"/>
+   <link href="cg_validate.css" rel="stylesheet" />
+   <script src="cg_script.js"></script>
 </head>
 
 <body>
@@ -50,7 +53,52 @@
    <section>
       <h1>Conference Registration Form</h1>
       <p>Required Item (*)</p>
-      
+
+      <form action="http://www.example.com/cg/register" method="POST">
+         <label for="titleBox">Title</label>
+         <input name="title" id="titleBox" type="text" list="titleList"/>
+         <datalist id="titleList">
+               <option value="Mr."></option>
+               <option value="Mrs."></option>
+               <option value="Ms."></option>
+               <option value="Prof."></option>
+               <option value="Dr."></option>
+               <option value="Assist. Prof."></option>
+               <option value="Assoc. Prof."></option>
+           </datalist>
+
+         <label for="fnBox">First Name*</label>
+         <input required name="firstName" id="fnBox" type="text" />
+
+         <label for="lnBox">Last Name*</label>
+         <input required name="lastName" id="lnBox" type="text" />
+
+         <label for="addBox">Address*</label>
+         <input required name="address" id="addBox" type="text" />
+
+         <label for="groupBox">Company or University</label>
+         <input name="group" id="groupBox" type="text" />
+
+         <label for="mailBox">Email*</label>
+         <input  required name="email" id="mailBox" type="email" />
+
+         <label for="phoneBox">Phone Number*</label>
+         <input required name="phoneNumber" id="phoneBox" type="tel" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$" placeholder="(nnn)nnn-nnnn" />
+
+         <label for="idBox">ACGIP Membership Number</label>
+         <input name="acgipID" id="idBox" type="text" pattern="^acgip\-\d{6}$" placeholder="acigip-nnnnnn" />
+         
+         <label for="regList">Registration Category</label>
+         <select name="list" id="regList">
+            <option value="registerType">ACGIP Member ($695)</option>
+            <option value="registerType">Non-Member ($795)</option>
+            <option value="registerType">Student ($310)</option>
+            <option value="registerType">Poster ($95)</option>
+         </select>
+
+         <p>
+            <input type="submit" value="Continue" />
+         </p>
    </section>
    
    <aside>
